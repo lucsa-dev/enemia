@@ -21,6 +21,14 @@ export interface Conteudo {
     provas: Prova[];
   }
 
+  export interface Simulation{
+    subject: string;
+    questions: Array<{
+      question: string;
+      options: Array<string>;
+      answer: string;
+      }>;
+  }
 export const Contents = {
     "provas": [
         {

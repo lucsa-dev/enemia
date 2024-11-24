@@ -5,9 +5,7 @@ import {
 
 export async function POST(req: NextRequest) {
     const prompt = await req.json();
-    console.log("🚀 ~ POST ~ prompt:", prompt)
 
-    
     const apiKey = process.env.GEMINI_API_KEY;
     const genAI = new GoogleGenerativeAI(apiKey || "default_api_key");
     
@@ -31,11 +29,7 @@ export async function POST(req: NextRequest) {
     try {
     const result = await chatSession.sendMessage(prompt.prompt);
 
-    // Remover as aspas extras
-    const jsonString = result.response.text().replace(/```json|```/g, '').trim();
-
-    console.log("🚀 ~ POST ~ jsonString:", jsonString)
-    return new Response(jsonString, {
+    return new Response(result.response.text(), {
         status: 200,
         headers: { 'Content-Type': 'application/json' },
         });
