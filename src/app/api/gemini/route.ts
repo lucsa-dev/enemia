@@ -1,8 +1,6 @@
 import { NextRequest } from 'next/server';
 import {
     GoogleGenerativeAI,
-    HarmCategory,
-    HarmBlockThreshold,
     } from "@google/generative-ai";
 
 export async function POST(req: NextRequest) {
@@ -11,7 +9,7 @@ export async function POST(req: NextRequest) {
 
     
     const apiKey = process.env.GEMINI_API_KEY;
-    const genAI = new GoogleGenerativeAI(apiKey);
+    const genAI = new GoogleGenerativeAI(apiKey || "default_api_key");
     
     const model = genAI.getGenerativeModel({
     model: "gemini-1.5-flash",

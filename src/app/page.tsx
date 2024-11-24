@@ -2,7 +2,7 @@
 import ChoiceContentsComponent from "@/components/ChoiceContents";
 import { filteredContents } from "@/contents/Contents";
 import axios from "axios";
-import { use, useState } from "react";
+import { useState } from "react";
 
 export default function Home() {
   const [subjects, setSubjects] = useState<Array<number>>([]);
