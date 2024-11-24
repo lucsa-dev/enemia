@@ -1,6 +1,7 @@
 "use client"
 import ChoiceContentsComponent from "@/components/ChoiceContents";
 import { filteredContents } from "@/contents/Contents";
+import axios from "axios";
 import { useState } from "react";
 
 export default function Home() {
@@ -8,7 +9,7 @@ export default function Home() {
   const [questions_qtd, setQuestions_qtd] = useState<number>(10);
   const [ prompt, setPrompt ] = useState<string>("");
   
-  const generateSimulation = () => {
+  const generateSimulation = async () => {
     const filteredContent = filteredContents(subjects);
     const allSubjects: string[] = [];
     filteredContent.provas.forEach(prova => {
@@ -21,16 +22,26 @@ export default function Home() {
         });
     });
 
-    const numSubjects = allSubjects.length;
-
     setPrompt(`
-      Gere um json com questões do ENEM com ${questions_qtd} questões, sendo ${numSubjects} matérias.
+      A resposta deve ser apenas um json sem texto com ${questions_qtd} questões baseadas nas provas oficiais do ENEM, divididas em matérias.
       As matérias são: ${allSubjects.join(', ')}.
       O formato de saída deve ser em JSON, com as seguintes chaves:
-      - question: string
-      - options: Array<string>
-      - answer: string
+    {
+       "subject" : string,
+       "questions": Array<{
+          question: string,
+          options: Array<string>,
+          answer: string
+        }>
+    }
       `)
+
+      try {
+        const response = await axios.post('api/gemini', { prompt });
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+      }
   }
 
 
