@@ -5,14 +5,15 @@ import { useState } from "react";
 import SubjectItem from "./SubjectItem";
 
 const ChoiceContentsComponent = () => {
-    const [subjects, setSubjects] = useState([]);
+    const [subjects, setSubjects] = useState<Array<number>>([]);
 
-    const handleChange = (tema: string, isChecked: boolean) => {
-        setSubjects((prev) => ({
-            ...prev,
-            [tema]: isChecked
-            }));
-        };
+    const addSubject = (id: number) => {
+        if (!subjects.includes(id)) {
+            setSubjects((prev) => [...prev, id]);
+        }else {
+            setSubjects((prev) => prev.filter((subjectId) => subjectId !== id));
+        }
+    };
 
     return (
         <div className="p-3 flex flex-col items-center h-screen">
@@ -26,11 +27,11 @@ const ChoiceContentsComponent = () => {
                 <ul className="list-disc pl-5">
                     {prova.disciplinas.map((disciplina: Disciplina, indexDisciplina: number) => (
                         <li key={indexDisciplina}>
-                            <button className="font-bold cursor-pointer p-3">{disciplina.nome}</button>
-                            <ul className=" pl-5">
+                            <button className="font-bold p-3">{disciplina.nome}</button>
+                            <ul className="list-none pl-5">
                                 {disciplina.conteudos.map((conteudo, indexConteudo) => (
                                     <li key={indexConteudo}>
-                                        <SubjectItem subjects={subjects} conteudo={conteudo} handleChange={handleChange} />
+                                        <SubjectItem subjects={subjects} conteudo={conteudo} addSubject={addSubject} />
                                     </li>
                                 ))}
                             </ul>

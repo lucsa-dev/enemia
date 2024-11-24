@@ -33,6 +33,7 @@ export const Contents = {
                     "nome": "Linguagens, Códigos e suas Tecnologias",
                     "conteudos": [
                         {
+                            "id": 8,
                             "disciplina": "Língua Portuguesa",
                             "temas": [
                                 "Compreensão e interpretação de textos",
@@ -44,6 +45,7 @@ export const Contents = {
                             ]
                         },
                         {
+                            "id": 9,
                             "disciplina": "Literatura",
                             "temas": [
                                 "Escolas literárias brasileiras",
@@ -55,6 +57,7 @@ export const Contents = {
                             ]
                         },
                         {
+                            "id": 10,
                             "disciplina": "Inglês ou Espanhol",
                             "temas": [
                                 "Compreensão de textos em língua estrangeira",
@@ -66,6 +69,7 @@ export const Contents = {
                             ]
                         },
                         {
+                            "id": 11,
                             "disciplina": "Artes",
                             "temas": [
                                 "História da arte: períodos e movimentos",
@@ -77,6 +81,7 @@ export const Contents = {
                             ]
                         },
                         {
+                            "id": 12,
                             "disciplina": "Educação Física",
                             "temas": [
                                 "Esporte e qualidade de vida",
@@ -88,6 +93,7 @@ export const Contents = {
                             ]
                         },
                         {
+                            "id": 13,
                             "disciplina": "Tecnologias da Informação e Comunicação",
                             "temas": [
                                 "Impacto das tecnologias na sociedade",
@@ -106,6 +112,7 @@ export const Contents = {
                     "nome": "Ciências Humanas e suas Tecnologias",
                     "conteudos": [
                         {
+                            "id": 14,
                             "disciplina": "História",
                             "temas": [
                                 "Brasil Colônia: economia e sociedade",
@@ -117,6 +124,7 @@ export const Contents = {
                             ]
                         },
                         {
+                            "id": 15,
                             "disciplina": "Geografia",
                             "temas": [
                                 "Globalização e questões econômicas",
@@ -128,6 +136,7 @@ export const Contents = {
                             ]
                         },
                         {
+                            "id": 16,
                             "disciplina": "Filosofia",
                             "temas": [
                                 "Pensadores clássicos: Sócrates, Platão e Aristóteles",
@@ -139,6 +148,7 @@ export const Contents = {
                             ]
                         },
                         {
+                            "id": 17,
                             "disciplina": "Sociologia",
                             "temas": [
                                 "Formação da sociedade brasileira",
