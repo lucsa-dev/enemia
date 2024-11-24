@@ -1,11 +1,7 @@
-"use client"
-
 import { Contents, Disciplina, Prova } from "../../contents/Contents";
-import { useState } from "react";
 import SubjectItem from "./SubjectItem";
 
-const ChoiceContentsComponent = () => {
-    const [subjects, setSubjects] = useState<Array<number>>([]);
+const ChoiceContentsComponent = ({subjects, setSubjects} : {subjects: Array<number>, setSubjects: React.Dispatch<React.SetStateAction<Array<number>>>;}) => {
 
     const addSubject = (id: number) => {
         if (!subjects.includes(id)) {
@@ -16,7 +12,7 @@ const ChoiceContentsComponent = () => {
     };
 
     return (
-        <div className="p-3 flex flex-col items-center h-screen">
+        <div>
         <h1 className="text-2xl font-bold mb-4">Para qual prova você deseja estudar ?</h1>
         <div className="flex flex-col md:flex-row gap-4">
         {Contents.provas.map((prova: Prova, indexProva: number) => (

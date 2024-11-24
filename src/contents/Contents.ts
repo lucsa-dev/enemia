@@ -259,3 +259,16 @@ export const Contents = {
         }
     ]
 }
+
+export const filteredContents = (subjects: Array<number>) => {
+    return {
+        ...Contents,
+        provas: Contents.provas.map(prova => ({
+            ...prova,
+            disciplinas: prova.disciplinas.map(disciplina => ({
+                ...disciplina,
+                conteudos: disciplina.conteudos.filter(conteudo => subjects.includes(conteudo.id))
+            })).filter(disciplina => disciplina.conteudos.length > 0)
+        })).filter(prova => prova.disciplinas.length > 0)
+    };
+}
