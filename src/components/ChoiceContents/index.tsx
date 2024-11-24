@@ -13,7 +13,7 @@ const ChoiceContentsComponent = ({subjects, setSubjects} : {subjects: Array<numb
 
     return (
         <div>
-        <h1 className="text-2xl font-bold mb-4">Para qual prova você deseja estudar ?</h1>
+        <h1 className="text-2xl font-bold mb-4">Selecione as matérias que estarão no simulado</h1>
         <div className="flex flex-col md:flex-row gap-4">
         {Contents.provas.map((prova: Prova, indexProva: number) => (
             <div key={indexProva} className="border-2 p-4 block">
