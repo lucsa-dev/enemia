@@ -24,3 +24,6 @@ Este projeto tem como objetivo criar um gerador de simulados personalizados para
 4. Execute o projeto: `npm run dev`
 5. Acesse a aplicação em `http://localhost:3000`
 6. Personalize os simulados, responda as questões e veja o resultado.
+
+## deploy
+https://enemia.vercel.app
